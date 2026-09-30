@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>GLIMMERDEEP · Bring your own light. A free browser game by Bramblelight Studio</title>
+<meta name="description" content="GLIMMERDEEP is a free pixel-art deep-sea descent you play in your browser. Your lamp is your life, and it's also bait. Dim it to slip past the anglers, and you're blind. About 25 minutes, no download.">
+<meta name="theme-color" content="#050814">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="https://jidiotspam-hue.github.io/bramblelight/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Bramblelight Studio">
+<meta property="og:title" content="GLIMMERDEEP: Bring your own light. Mind who sees it.">
+<meta property="og:description" content="A free pixel-art deep-sea descent in your browser. Your lamp is your life, and it's also bait.">
+<meta property="og:url" content="https://jidiotspam-hue.github.io/bramblelight/">
+<meta property="og:image" content="https://jidiotspam-hue.github.io/bramblelight/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="A tiny brass diving bell with a warm lamp in a vast dark sea, beside the GLIMMERDEEP logo.">
+<meta property="og:locale" content="en_US">
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GLIMMERDEEP: Bring your own light.">
+<meta name="twitter:description" content="A free pixel-art deep-sea descent in your browser. Your lamp is your life, and it's also bait.">
+<meta name="twitter:image" content="https://jidiotspam-hue.github.io/bramblelight/img/og.png">
+<meta name="twitter:image:alt" content="A tiny brass diving bell with a warm lamp in a vast dark sea, beside the GLIMMERDEEP logo.">
+
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+
+<link rel="preload" href="fonts/VT323-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/Silkscreen-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/site.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoGame",
+  "name": "GLIMMERDEEP",
+  "url": "https://jidiotspam-hue.github.io/bramblelight/",
+  "image": "https://jidiotspam-hue.github.io/bramblelight/img/og.png",
+  "description": "A free pixel-art deep-sea stealth descent you play in your browser. Your lamp is your life, and it's also bait.",
+  "genre": ["Exploration", "Stealth", "Adventure"],
+  "gamePlatform": "Web browser",
+  "applicationCategory": "Game",
+  "operatingSystem": "Any (modern web browser)",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "author": { "@type": "Organization", "name": "Bramblelight Studio" },
+  "datePublished": "2026-09-30"
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav" id="top">
+  <a class="nav-brand" href="#top" aria-label="GLIMMERDEEP, back to top">
+    <img src="img/logo_small.png" alt="" class="px nav-logo" width="128" height="32">
+  </a>
+  <nav aria-label="Sections">
+    <a href="#features">Features</a>
+    <a href="#screens">Screens</a>
+    <a href="#story">Story</a>
+    <a href="#controls">Controls</a>
+    <a href="#studio">Studio</a>
+    <a href="press/" data-root>Press</a>
+  </nav>
+  <a class="btn btn-sm" href="game/" data-root>Play</a>
+</header>
+
+<main id="main">
+  <!-- ============ HERO ============ -->
+  <section class="hero" aria-labelledby="hero-title">
+    <canvas id="sea" class="hero-sea" aria-hidden="true"></canvas>
+    <div class="hero-vignette" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <p class="eyebrow">Bramblelight Studio presents</p>
+      <h1 id="hero-title" class="logo-wrap">
+        <img src="img/logo.png" alt="GLIMMERDEEP" class="px hero-logo" id="heroLogo" width="232" height="38">
+      </h1>
+      <p class="tagline"><span class="gold">Bring your own light.</span> Mind who sees it.</p>
+      <p class="sub">A free pixel-art deep-sea descent. It plays in your browser in about 25 minutes, with no download.</p>
+      <div class="cta">
+        <a class="btn btn-play" href="game/" data-root>
+          <span class="btn-lamp" aria-hidden="true"></span>Play in browser
+        </a>
+        <a class="btn btn-ghost" href="img/trailer.mp4" data-lightbox data-full="img/trailer.mp4" aria-label="Watch the 50-second trailer">&#9654; Trailer</a>
+      </div>
+      <p class="meta-line">Free &middot; Keyboard, gamepad or touch &middot; No account, no ads</p>
+    </div>
+    <p class="hero-hint" id="heroHint" aria-hidden="true">move to swim &middot; hold to dim</p>
+    <a class="scroll-cue" href="#features" aria-label="Scroll to features"><span></span></a>
+  </section>
+
+  <!-- ============ FEATURES ============ -->
+  <section class="band band-1" id="features" aria-labelledby="f-title">
+    <div class="wrap">
+      <h2 id="f-title" class="section-title"><span class="depth">0&nbsp;m</span>Your lamp is your life</h2>
+      <div class="trio">
+        <article class="card feature">
+          <svg class="icon px" viewBox="0 0 12 12" aria-hidden="true" shape-rendering="crispEdges">
+            <rect x="5" y="0" width="2" height="1" fill="#6a3418"/><rect x="4" y="1" width="4" height="1" fill="#a3561e"/>
+            <rect x="3" y="2" width="6" height="7" fill="#d98a2b"/><rect x="4" y="3" width="4" height="5" fill="#ffc46b"/>
+            <rect x="5" y="4" width="2" height="3" fill="#fff0c2"/><rect x="2" y="9" width="8" height="2" fill="#6a3418"/>
+            <rect x="3" y="9" width="6" height="1" fill="#a3561e"/>
+          </svg>
+          <h3>Oil is breath</h3>
+          <p>The Wick's lamp burns oil. When it runs dry, the dark takes you. Gather drifting <span class="teal">glimmers</span> to keep it lit.</p>
+        </article>
+        <article class="card feature">
+          <svg class="icon px" viewBox="0 0 12 12" aria-hidden="true" shape-rendering="crispEdges">
+            <rect x="6" y="0" width="1" height="1" fill="#fff0c2"/><rect x="5" y="1" width="3" height="1" fill="#ff6fa8"/>
+            <rect x="4" y="2" width="1" height="3" fill="#634a5e"/><rect x="1" y="5" width="8" height="5" fill="#231a2a"/>
+            <rect x="0" y="6" width="1" height="3" fill="#231a2a"/><rect x="9" y="6" width="2" height="3" fill="#231a2a"/>
+            <rect x="2" y="6" width="1" height="1" fill="#5fe0c8"/><rect x="1" y="8" width="6" height="1" fill="#e8e4f0"/>
+            <rect x="11" y="5" width="1" height="5" fill="#33263a"/>
+          </svg>
+          <h3>Light is bait</h3>
+          <p>Anglers hunt by light. Burn <b class="gold">bright</b> and you see everything, and everything sees you. Go <b class="teal">dim</b> and you slip past, but you're blind.</p>
+        </article>
+        <article class="card feature">
+          <svg class="icon px" viewBox="0 0 12 12" aria-hidden="true" shape-rendering="crispEdges">
+            <rect x="4" y="1" width="4" height="1" fill="#5fe0c8"/><rect x="2" y="2" width="2" height="1" fill="#5fe0c8"/><rect x="8" y="2" width="2" height="1" fill="#5fe0c8"/>
+            <rect x="1" y="3" width="1" height="2" fill="#5fe0c8"/><rect x="10" y="3" width="1" height="2" fill="#5fe0c8"/>
+            <rect x="1" y="7" width="1" height="2" fill="#2fa08e"/><rect x="10" y="7" width="1" height="2" fill="#2fa08e"/>
+            <rect x="2" y="9" width="2" height="1" fill="#2fa08e"/><rect x="8" y="9" width="2" height="1" fill="#2fa08e"/><rect x="4" y="10" width="4" height="1" fill="#2fa08e"/>
+            <rect x="5" y="5" width="2" height="2" fill="#ffc46b"/><rect x="5" y="4" width="1" height="1" fill="#fff0c2"/>
+          </svg>
+          <h3>Flares, pings, nerve</h3>
+          <p>Throw a <b class="gold">flare</b> and the hunters chase it instead of you. <b class="teal">Ping</b> sonar to see the walls, but anything listening turns toward the sound.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SCREENS ============ -->
+  <section class="band band-2" id="screens" aria-labelledby="s-title">
+    <div class="wrap">
+      <h2 id="s-title" class="section-title"><span class="depth">40&nbsp;m</span>From the harbor to the trench</h2>
+      <div class="gallery" id="gallery">
+        <!-- Juno: stills are img/shotN.png (960x540 = native x2). Clips are img/<name>.mp4 + .jpg poster (muted, loop, play only on screen). -->
+        <figure class="shot shot-wide"><button class="shot-btn" data-full="img/flare.mp4" aria-label="Enlarge clip: a flare as a decoy"><video src="img/flare.mp4" poster="img/flare.jpg" muted loop playsinline preload="none" data-autoplay width="960" height="540" aria-label="The Wick throws a flare, and the angler behind it peels away to chase the flare." class="px"></video></button><figcaption>Give it something brighter</figcaption></figure>
+        <figure class="shot"><button class="shot-btn" data-full="img/shot1.png" aria-label="Enlarge: the Harbor Shelf"><img src="img/shot1.png" alt="The Wick at the sunlit surface of the sunken harbor, between old pier posts." width="960" height="540" loading="lazy" class="px"></button><figcaption>The Harbor Shelf</figcaption></figure>
+        <figure class="shot"><button class="shot-btn" data-full="img/shot2.png" aria-label="Enlarge: Kelp Cathedral"><img src="img/shot2.png" alt="The Wick slips between glowing pink jellies among the kelp columns." width="960" height="540" loading="lazy" class="px"></button><figcaption>Kelp Cathedral</figcaption></figure>
+        <figure class="shot"><button class="shot-btn" data-full="img/angler_dim.mp4" aria-label="Enlarge clip: going dim"><video src="img/angler_dim.mp4" poster="img/angler_dim.jpg" muted loop playsinline preload="none" data-autoplay width="960" height="540" aria-label="An angler hunts the Wick's light. The Wick dims and drops away, and the angler loses it." class="px"></video></button><figcaption>The Twilight Drop &middot; go dim</figcaption></figure>
+        <figure class="shot"><button class="shot-btn" data-full="img/shot4.png" aria-label="Enlarge: the Drowned Lighthouse"><img src="img/shot4.png" alt="A red flare lights the drowned brick of the old lighthouse." width="960" height="540" loading="lazy" class="px"></button><figcaption>Drowned Lighthouse</figcaption></figure>
+        <figure class="shot"><button class="shot-btn" data-full="img/shot6.png" aria-label="Enlarge: the Hadal Trench"><img src="img/shot6.png" alt="Near-total darkness in the Hadal Trench, lights waking in the black." width="960" height="540" loading="lazy" class="px"></button><figcaption>The Hadal Trench</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STORY ============ -->
+  <section class="band band-3" id="story" aria-labelledby="st-title">
+    <div class="wrap story">
+      <div class="story-text">
+        <h2 id="st-title" class="section-title"><span class="depth">200&nbsp;m</span>The storm took the flame</h2>
+        <p class="lead">Merrow Light has burned every night since 1887. Last night a storm broke the lantern room, and the flame went over the rail, still burning, all the way down.</p>
+        <p>Mum's arm is in a sling, and the boats won't sail without the light. So Sprat, the keeper's kid, pulls the tarp off Gran's old diving bell, <b class="gold">the Wick</b>, and goes down after it. Down through the sunlit harbor, the kelp and the cliffs, and the ruins of an older lighthouse the sea took long ago.</p>
+        <p>Gran left bottles wherever she was frightened. With the century-old keepers' logs, they tell the story of the Carrow family, and of why no lamp dropped over the side at Merrow has ever washed up.</p>
+        <p class="note">Cozy-eerie, not horror. Lonely, a little scary, and warm at the end.</p>
+      </div>
+      <ol class="gauge" aria-label="The five zones of the descent">
+        <li style="--z:0"><span class="gm">0 m</span><b>The Harbor Shelf</b><small>Sunlight, a sunken harbor, your first glimmers.</small></li>
+        <li style="--z:1"><span class="gm">40 m</span><b>Kelp Cathedral</b><small>Kelp columns, god-rays and jellies. Learn to go dim.</small></li>
+        <li style="--z:2"><span class="gm">200 m</span><b>The Twilight Drop</b><small>Blue-black cliffs. The anglers appear.</small></li>
+        <li style="--z:3"><span class="gm">1000 m</span><b>Drowned Lighthouse</b><small>An older ruin, eels in the walls. Flares matter.</small></li>
+        <li style="--z:4"><span class="gm">3000 m+</span><b>The Hadal Trench</b><small>Almost no light at all, except the one you carry.</small></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ CONTROLS ============ -->
+  <section class="band band-4" id="controls" aria-labelledby="c-title">
+    <div class="wrap">
+      <h2 id="c-title" class="section-title"><span class="depth">1000&nbsp;m</span>Controls</h2>
+      <div class="controls">
+        <div class="ctl"><div class="keys"><span class="pad"><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></span><span class="or">or</span><span class="pad"><kbd aria-label="Up">&uarr;</kbd><kbd aria-label="Left">&larr;</kbd><kbd aria-label="Down">&darr;</kbd><kbd aria-label="Right">&rarr;</kbd></span></div><p><b>Swim.</b> The Wick drifts, so ease into turns.</p></div>
+        <div class="ctl"><div class="keys"><kbd class="wide">Shift</kbd><span class="or">hold</span></div><p><b class="teal">Dim</b> the lamp. You're nearly invisible, it barely burns oil, and you're nearly blind.</p></div>
+        <div class="ctl" id="ctl-bright"><div class="keys"><kbd>Q</kbd><span class="or">toggle</span></div><p><b class="gold">Bright</b> lamp. You see far, oil burns fast, and you are very visible.</p></div>
+        <div class="ctl"><div class="keys"><kbd class="wide">Space</kbd></div><p><b class="gold">Flare.</b> A decoy, because hunters chase the brightest light. You only have a few.</p></div>
+        <div class="ctl"><div class="keys"><kbd>E</kbd></div><p><b class="teal">Ping.</b> Sonar outlines the walls for two seconds. It's loud, though.</p></div>
+        <div class="ctl" id="ctl-pad"><div class="keys"><kbd class="wide">Gamepad</kbd></div><p>Stick or d-pad to swim. Left bumper to dim, right bumper for bright. A flares, B pings. On a phone? There's a touch stick.</p></div>
+      </div>
+      <p class="tip-line">Lantern buoys save your progress and mend your hull. <kbd class="inline">Esc</kbd> or <kbd class="inline">P</kbd> pauses. From the pause menu, <kbd class="inline">R</kbd> returns you to the last buoy.</p>
+      <p class="assist"><b class="teal">Assist mode</b>: want the story without the stress? Press <kbd class="inline">A</kbd> in the pause menu for no damage and endless oil. No judgement. The sea is big.</p>
+    </div>
+  </section>
+
+  <!-- ============ STUDIO ============ -->
+  <section class="band band-5" id="studio" aria-labelledby="studio-title">
+    <div class="wrap studio">
+      <div>
+        <h2 id="studio-title" class="section-title"><span class="depth">3000&nbsp;m</span>Made by Bramblelight Studio</h2>
+        <p>Bramblelight is a tiny studio with a night shift. <b class="gold">Opal</b> runs the studio and wrote the engine. <b class="teal">Wren</b> designed the zones and wrote the story. <b class="pink">Moss</b> drew every pixel. <b>Juno</b> wrote the words you're reading.</p>
+        <p class="honest">In the open: Bramblelight is an experiment, a studio run by AI. Each role is played by Claude, an AI model made by Anthropic. The team made GLIMMERDEEP in one night, and a human boss approved everything that went public. You can watch the team work (and doze) in the pixel office.</p>
+        <div class="cta cta-left">
+          <a class="btn" href="office/" data-root><span class="btn-lamp" aria-hidden="true"></span>Visit the pixel office</a>
+          <a class="btn btn-ghost" href="press/" data-root>Press kit</a>
+        </div>
+      </div>
+      <ul class="team" aria-label="The team">
+        <li><span class="av av-opal" aria-hidden="true"></span><b>Opal</b><small>Studio head &middot; engine</small></li>
+        <li><span class="av av-wren" aria-hidden="true"></span><b>Wren</b><small>Design &middot; story</small></li>
+        <li><span class="av av-moss" aria-hidden="true"></span><b>Moss</b><small>Pixel art &middot; UI</small></li>
+        <li><span class="av av-juno" aria-hidden="true"></span><b>Juno</b><small>Marketing &middot; press</small></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ FINAL CTA ============ -->
+  <section class="band band-6 final" aria-labelledby="end-title">
+    <div class="wrap">
+      <p class="final-glow" aria-hidden="true"></p>
+      <h2 id="end-title" class="final-title">The flame is still down there.</h2>
+      <a class="btn btn-play" href="game/" data-root><span class="btn-lamp" aria-hidden="true"></span>Play in browser</a>
+      <p class="meta-line">Free &middot; about 25 minutes &middot; saves at lantern buoys</p>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-row">
+    <p>&copy; 2026 Bramblelight Studio &middot; GLIMMERDEEP</p>
+    <p><a href="press/" data-root>Press kit</a> &middot; <a href="office/" data-root>The office</a> &middot; <a href="mailto:press@bramblelight.example">press@bramblelight.example</a></p>
+    <p class="muted">No cookies, no trackers. The only thing watching is the angler.</p>
+  </div>
+</footer>
+
+<dialog class="lightbox" id="lightbox" aria-label="Screenshot">
+  <form method="dialog"><button class="lb-close" aria-label="Close">&times;</button></form>
+  <img alt="" id="lbImg" class="px">
+  <video id="lbVid" class="px" muted loop playsinline controls hidden></video>
+</dialog>
+
+<script src="js/site.js" defer></script>
+<script src="js/hero.js" defer></script>
+</body>
+</html>

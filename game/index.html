@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>GLIMMERDEEP — Bramblelight Studio</title>
+<meta name="description" content="Bring your own light. Mind who sees it. A pixel-art deep-sea descent by Bramblelight Studio.">
+<meta name="theme-color" content="#050814">
+<link rel="icon" href="assets/favicon.png">
+<style>
+  @font-face { font-family:'Silkscreen'; src:url(fonts/Silkscreen-Regular.woff2) format('woff2'); font-display:swap; }
+  @font-face { font-family:'VT323'; src:url(fonts/VT323-Regular.woff2) format('woff2'); font-display:swap; }
+  :root { --ink:#e8e4f0; --gold:#ffc46b; --teal:#5fe0c8; --pink:#ff6fa8; --deep:#050814; --panel:#0a1024f0; --edge:#2a4a7a; }
+  html, body { margin:0; height:100%; background:var(--deep); overflow:hidden; color:var(--ink); font-family:'VT323', monospace; }
+  body { display:flex; align-items:center; justify-content:center; }
+  #stage { position:relative; font-size:12px; }
+  #gl, #hud { position:absolute; inset:0; image-rendering:pixelated; image-rendering:crisp-edges; }
+  #hud { pointer-events:none; }
+  .ov { position:absolute; inset:0; pointer-events:none; display:flex; align-items:center; justify-content:center; }
+  #title { flex-direction:column; justify-content:flex-end; padding-bottom:12%; box-sizing:border-box; pointer-events:auto; }
+  #menu { display:flex; flex-direction:column; gap:.6em; align-items:center; }
+  #menu button { font-family:'Silkscreen'; font-size:2.2em; background:none; border:none; color:#a08494; cursor:pointer; text-shadow:0 .15em 0 #050814; padding:.1em .6em; }
+  #menu button.sel { color:var(--gold); }
+  #menu button.sel::before { content:'▸ '; }
+  .blink { animation:blink 1.4s steps(2) infinite; }
+  @keyframes blink { 50% { opacity:.35; } }
+  #title .foot { position:absolute; bottom:3%; font-size:1.9em; color:#5286a8; letter-spacing:.05em; text-align:center; width:100%; }
+  #card { display:none; background:radial-gradient(ellipse at center, #050814e8 0%, #050814c0 55%, #05081400 100%); flex-direction:column; }
+  #card p { font-size:3.6em; max-width:70%; text-align:center; line-height:1.05; margin:0; color:var(--ink); text-shadow:0 0 .4em #5fe0c855; opacity:0; transform:translateY(.3em); transition:opacity .6s, transform .6s; }
+  #card small { position:absolute; bottom:8%; right:6%; font-family:'Silkscreen'; font-size:1.4em; color:#5286a8; opacity:0; transition:opacity .6s .8s; }
+  #card.show p, #card.show small { opacity:1; transform:none; }
+  #zonecard { flex-direction:column; justify-content:flex-start; padding-top:14%; opacity:0; transition:opacity 1.2s; text-align:center; }
+  #zonecard.show { opacity:1; }
+  #zonecard small { font-family:'Silkscreen'; font-size:1.6em; color:var(--teal); letter-spacing:.3em; }
+  #zonecard h2 { font-family:'Silkscreen'; font-weight:normal; font-size:4.2em; margin:.1em 0 .25em; color:var(--gold); text-shadow:0 .1em 0 #3a1c10, 0 0 .6em #ffc46b66; }
+  #zonecard p { font-size:2.6em; margin:.1em; max-width:60ch; color:#cfd6ea; text-shadow:0 .08em 0 #050814; }
+  #tip { align-items:flex-end; padding-bottom:4%; box-sizing:border-box; opacity:0; transition:opacity .5s; }
+  #tip.show { opacity:1; }
+  #tip { font-size:2.4em; }
+  #tip > * { pointer-events:none; }
+  #tip { text-align:center; }
+  #tip:not(:empty) { }
+  #tip kbd { font-family:'Silkscreen'; font-size:.7em; color:#050814; background:var(--gold); padding:.1em .4em; border-bottom:.15em solid #a3561e; margin-right:.3em; }
+  .tipbox { }
+  #tip { color:var(--ink); text-shadow:0 .1em 0 #050814, 0 0 .3em #050814; }
+  #lore { display:none; background:#050814aa; pointer-events:auto; }
+  #lore .panel { width:62%; max-height:80%; overflow:auto; background:#e9dfc6; color:#33263a; border:.35em solid #6a3418; box-shadow:0 0 0 .2em #3a1c10, 0 1em 3em #000c; padding:1.6em 2.2em; font-size:2.35em; line-height:1.08; }
+  #lore .panel small { font-family:'Silkscreen'; font-size:.55em; color:#a3561e; letter-spacing:.2em; }
+  #lore .panel h3 { font-family:'Silkscreen'; font-weight:normal; margin:.2em 0 .5em; font-size:1.05em; color:#6a3418; }
+  #lore .panel p { margin:.5em 0; }
+  #lore .panel .k { display:block; text-align:right; margin-top:.8em; }
+  #death { opacity:0; transition:opacity .8s; }
+  #death.show { opacity:1; }
+  #death p { font-size:3.4em; color:#cfd6ea; max-width:70%; text-align:center; font-style:italic; }
+  #pause { display:none; background:#050814cc; flex-direction:column; font-size:2.6em; gap:.4em; }
+  #pause h2 { font-family:'Silkscreen'; font-weight:normal; color:var(--gold); margin:0 0 .3em; font-size:1.6em; }
+  #pause table { border-collapse:collapse; } #pause td { padding:.05em .7em; } #pause td:first-child { color:var(--teal); text-align:right; font-family:'Silkscreen'; font-size:.6em; }
+  #credits { flex-direction:column; opacity:0; transition:opacity 2s; font-size:2.6em; text-align:center; text-shadow:0 .1em 0 #050814, 0 0 .4em #050814; }
+  #credits.show { opacity:1; }
+  #credits p { margin:.12em; } #credits p:first-child { font-family:'Silkscreen'; color:var(--gold); font-size:1.3em; }
+  #credits .k { margin-top:1em; color:var(--teal); font-size:.8em; }
+  #rotate { display:none; position:fixed; inset:auto 0 12% 0; text-align:center; font-family:'Silkscreen'; font-size:14px; color:var(--gold); pointer-events:none; }
+  @media (orientation: portrait) and (pointer: coarse) { #rotate { display:block; } }
+  #err { display:none; position:fixed; inset:auto 0 40% 0; text-align:center; font-size:28px; color:var(--pink); }
+  #touch { display:none; position:fixed; inset:0; pointer-events:none; }
+  #stick { position:absolute; left:0; bottom:0; width:45%; height:60%; pointer-events:auto; }
+  #touch .btns { position:absolute; right:12px; bottom:14px; display:grid; grid-template-columns:repeat(2, 64px); gap:10px; pointer-events:auto; }
+  #touch button { width:64px; height:64px; border-radius:50%; border:2px solid #ffc46b88; background:#0a1024aa; color:var(--gold); font-family:'Silkscreen'; font-size:11px; }
+</style>
+</head>
+<body>
+<div id="stage">
+  <canvas id="gl" width="480" height="270"></canvas>
+  <canvas id="hud" width="480" height="270"></canvas>
+  <div class="ov" id="zonecard"></div>
+  <div class="ov" id="tip"></div>
+  <div class="ov" id="death"></div>
+  <div class="ov" id="credits"></div>
+  <div class="ov" id="card"></div>
+  <div class="ov" id="lore"></div>
+  <div class="ov" id="pause"><h2>PAUSED</h2>
+    <table>
+      <tr><td>MOVE</td><td>WASD / arrows</td></tr><tr><td>DIM</td><td>hold Shift</td></tr><tr><td>LAMP</td><td>Q · low / bright</td></tr>
+      <tr><td>FLARE</td><td>Space</td></tr><tr><td>PING</td><td>E</td></tr><tr><td>RESUME</td><td>Esc</td></tr><tr><td>GIVE UP</td><td>R · back to last buoy</td></tr><tr><td>ASSIST</td><td>A · <span id="assist">OFF</span></td></tr>
+    </table></div>
+  <div class="ov" id="title"><div id="menu"></div><div class="foot">WASD swim · SHIFT dim · Q lamp · SPACE flare · E ping · a Bramblelight Studio game</div></div>
+</div>
+<div id="touch"><div id="stick"></div><div class="btns"><button data-key="ShiftLeft">DIM</button><button data-key="KeyQ">LAMP</button><button data-key="KeyE">PING</button><button data-key="Space">FLARE</button></div></div>
+<div id="rotate">Turn your phone sideways ⟳</div>
+<div id="err"></div>
+<script>window.GLIMMER_BUILD='202609301550'</script>
+<script src="src/core.js"></script>
+<script src="src/render.js"></script>
+<script src="src/world.js"></script>
+<script src="src/entities.js"></script>
+<script src="data/story.js"></script>
+<script src="data/guest.js"></script>
+<script src="data/zones/zone1.js"></script>
+<script src="data/zones/zone2.js"></script>
+<script src="data/zones/zone3.js"></script>
+<script src="data/zones/zone4.js"></script>
+<script src="data/zones/zone5.js"></script>
+<script src="src/testzone.js"></script>
+<script src="src/ui.js"></script>
+<script src="src/game.js"></script>
+</body>
+</html>

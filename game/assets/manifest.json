@@ -1,0 +1,657 @@
+{
+ "version": 1,
+ "palette": "palette.json",
+ "sprites": {
+  "wick": {
+   "file": "wick.png",
+   "emissive": "wick_e.png",
+   "fw": 24,
+   "fh": 18,
+   "ox": 12,
+   "oy": 9,
+   "frames": 10,
+   "anims": {
+    "idle": {
+     "frames": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "fps": 6
+    },
+    "swim": {
+     "frames": [
+      4,
+      5,
+      6,
+      7
+     ],
+     "fps": 10
+    },
+    "hurt": {
+     "frames": [
+      8,
+      9
+     ],
+     "fps": 12
+    }
+   }
+  },
+  "angler": {
+   "file": "angler.png",
+   "emissive": "angler_e.png",
+   "fw": 40,
+   "fh": 28,
+   "ox": 20,
+   "oy": 15,
+   "frames": 14,
+   "anims": {
+    "swim": {
+     "frames": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "fps": 8
+    },
+    "chase": {
+     "frames": [
+      6,
+      7,
+      8,
+      9
+     ],
+     "fps": 12
+    },
+    "bite": {
+     "frames": [
+      10,
+      11,
+      12,
+      13
+     ],
+     "fps": 12
+    }
+   }
+  },
+  "jelly": {
+   "file": "jelly.png",
+   "emissive": "jelly_e.png",
+   "fw": 16,
+   "fh": 24,
+   "ox": 8,
+   "oy": 8,
+   "frames": 6,
+   "anims": {
+    "drift": {
+     "frames": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "fps": 6
+    }
+   }
+  },
+  "eel_head": {
+   "file": "eel_head.png",
+   "emissive": "eel_head_e.png",
+   "fw": 24,
+   "fh": 14,
+   "ox": 12,
+   "oy": 7,
+   "frames": 5,
+   "anims": {
+    "hide": {
+     "frames": [
+      0,
+      1
+     ],
+     "fps": 2
+    },
+    "lunge": {
+     "frames": [
+      2,
+      3,
+      4
+     ],
+     "fps": 12,
+     "loop": false
+    }
+   }
+  },
+  "eel_body": {
+   "file": "eel_body.png",
+   "fw": 10,
+   "fh": 10,
+   "ox": 5,
+   "oy": 5,
+   "frames": 1,
+   "anims": {
+    "idle": {
+     "frames": [
+      0
+     ],
+     "fps": 1
+    }
+   }
+  },
+  "urchin": {
+   "file": "urchin.png",
+   "fw": 16,
+   "fh": 16,
+   "ox": 8,
+   "oy": 9,
+   "frames": 2,
+   "anims": {
+    "idle": {
+     "frames": [
+      0,
+      1
+     ],
+     "fps": 3
+    }
+   }
+  },
+  "lanternfish": {
+   "file": "lanternfish.png",
+   "emissive": "lanternfish_e.png",
+   "fw": 8,
+   "fh": 5,
+   "ox": 4,
+   "oy": 2,
+   "frames": 4,
+   "anims": {
+    "swim": {
+     "frames": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "fps": 10
+    }
+   }
+  },
+  "glimmer": {
+   "file": "glimmer.png",
+   "emissive": "glimmer_e.png",
+   "fw": 8,
+   "fh": 8,
+   "ox": 4,
+   "oy": 4,
+   "frames": 6,
+   "anims": {
+    "pulse": {
+     "frames": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "fps": 8
+    }
+   }
+  },
+  "glimmer_big": {
+   "file": "glimmer_big.png",
+   "emissive": "glimmer_big_e.png",
+   "fw": 16,
+   "fh": 16,
+   "ox": 8,
+   "oy": 8,
+   "frames": 6,
+   "anims": {
+    "pulse": {
+     "frames": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "fps": 8
+    }
+   }
+  },
+  "flare": {
+   "file": "flare.png",
+   "emissive": "flare_e.png",
+   "fw": 6,
+   "fh": 6,
+   "ox": 3,
+   "oy": 3,
+   "frames": 2,
+   "anims": {
+    "burn": {
+     "frames": [
+      0,
+      1
+     ],
+     "fps": 12
+    }
+   }
+  },
+  "crate": {
+   "file": "crate.png",
+   "fw": 16,
+   "fh": 14,
+   "ox": 8,
+   "oy": 7,
+   "frames": 1,
+   "anims": {
+    "idle": {
+     "frames": [
+      0
+     ],
+     "fps": 1
+    }
+   }
+  },
+  "patch": {
+   "file": "patch.png",
+   "fw": 12,
+   "fh": 12,
+   "ox": 6,
+   "oy": 6,
+   "frames": 1,
+   "anims": {
+    "idle": {
+     "frames": [
+      0
+     ],
+     "fps": 1
+    }
+   }
+  },
+  "buoy": {
+   "file": "buoy.png",
+   "emissive": "buoy_e.png",
+   "fw": 16,
+   "fh": 32,
+   "ox": 8,
+   "oy": 16,
+   "frames": 5,
+   "anims": {
+    "off": {
+     "frames": [
+      0
+     ],
+     "fps": 1
+    },
+    "on": {
+     "frames": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "fps": 8
+    }
+   }
+  },
+  "bottle": {
+   "file": "bottle.png",
+   "emissive": "bottle_e.png",
+   "fw": 10,
+   "fh": 12,
+   "ox": 5,
+   "oy": 6,
+   "frames": 4,
+   "anims": {
+    "bob": {
+     "frames": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "fps": 4
+    }
+   }
+  },
+  "kelp": {
+   "file": "kelp.png",
+   "fw": 16,
+   "fh": 48,
+   "ox": 8,
+   "oy": 47,
+   "frames": 12,
+   "anims": {
+    "a": {
+     "frames": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "fps": 3
+    },
+    "b": {
+     "frames": [
+      4,
+      5,
+      6,
+      7
+     ],
+     "fps": 3
+    },
+    "c": {
+     "frames": [
+      8,
+      9,
+      10,
+      11
+     ],
+     "fps": 3
+    }
+   }
+  },
+  "coral": {
+   "file": "coral.png",
+   "fw": 16,
+   "fh": 16,
+   "ox": 8,
+   "oy": 15,
+   "frames": 6,
+   "anims": {
+    "v": {
+     "frames": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "fps": 0
+    }
+   }
+  },
+  "ruin": {
+   "file": "ruin.png",
+   "fw": 32,
+   "fh": 32,
+   "ox": 16,
+   "oy": 31,
+   "frames": 6,
+   "anims": {
+    "v": {
+     "frames": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "fps": 0
+    }
+   }
+  },
+  "bones": {
+   "file": "bones.png",
+   "fw": 32,
+   "fh": 16,
+   "ox": 16,
+   "oy": 15,
+   "frames": 3,
+   "anims": {
+    "v": {
+     "frames": [
+      0,
+      1,
+      2
+     ],
+     "fps": 0
+    }
+   }
+  },
+  "vent": {
+   "file": "vent.png",
+   "fw": 16,
+   "fh": 16,
+   "ox": 8,
+   "oy": 15,
+   "frames": 4,
+   "anims": {
+    "bubble": {
+     "frames": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "fps": 8
+    }
+   }
+  },
+  "whale": {
+   "file": "whale.png",
+   "emissive": "whale_e.png",
+   "fw": 320,
+   "fh": 160,
+   "ox": 160,
+   "oy": 80,
+   "frames": 4,
+   "anims": {
+    "idle": {
+     "frames": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "fps": 2
+    }
+   }
+  },
+  "flame": {
+   "file": "flame.png",
+   "emissive": "flame_e.png",
+   "fw": 16,
+   "fh": 24,
+   "ox": 8,
+   "oy": 14,
+   "frames": 6,
+   "anims": {
+    "burn": {
+     "frames": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "fps": 10
+    }
+   }
+  }
+ },
+ "tiles": {
+  "1": "tiles_zone1.png",
+  "2": "tiles_zone2.png",
+  "3": "tiles_zone3.png",
+  "4": "tiles_zone4.png",
+  "5": "tiles_zone5.png"
+ },
+ "bg": {
+  "1": [
+   {
+    "file": "bg1_far.png",
+    "parallax": 0.25
+   },
+   {
+    "file": "bg1_near.png",
+    "parallax": 0.5
+   }
+  ],
+  "2": [
+   {
+    "file": "bg2_far.png",
+    "parallax": 0.25
+   },
+   {
+    "file": "bg2_near.png",
+    "parallax": 0.5
+   }
+  ],
+  "3": [
+   {
+    "file": "bg3_far.png",
+    "parallax": 0.25
+   },
+   {
+    "file": "bg3_near.png",
+    "parallax": 0.5
+   }
+  ],
+  "4": [
+   {
+    "file": "bg4_far.png",
+    "parallax": 0.25
+   },
+   {
+    "file": "bg4_near.png",
+    "parallax": 0.5
+   }
+  ],
+  "5": [
+   {
+    "file": "bg5_far.png",
+    "parallax": 0.25
+   },
+   {
+    "file": "bg5_near.png",
+    "parallax": 0.5
+   }
+  ]
+ },
+ "ui": {
+  "oil_icon": [
+   0,
+   0,
+   12,
+   12
+  ],
+  "hull_full": [
+   12,
+   0,
+   8,
+   8
+  ],
+  "hull_empty": [
+   20,
+   0,
+   8,
+   8
+  ],
+  "flare_icon": [
+   28,
+   0,
+   8,
+   8
+  ],
+  "ping_icon": [
+   36,
+   0,
+   8,
+   8
+  ],
+  "panel_9slice": [
+   0,
+   12,
+   24,
+   24
+  ],
+  "key_shift": [
+   24,
+   12,
+   23,
+   11
+  ],
+  "key_e": [
+   48,
+   12,
+   11,
+   11
+  ],
+  "key_space": [
+   24,
+   24,
+   29,
+   11
+  ],
+  "key_arrows": [
+   60,
+   12,
+   35,
+   11
+  ],
+  "lamp_bright": [
+   44,
+   0,
+   8,
+   8
+  ],
+  "lamp_low": [
+   52,
+   0,
+   8,
+   8
+  ],
+  "lamp_dim": [
+   60,
+   0,
+   8,
+   8
+  ],
+  "cursor": [
+   68,
+   0,
+   7,
+   7
+  ],
+  "oil_bar_frame": [
+   76,
+   0,
+   40,
+   8
+  ],
+  "oil_bar_fill": [
+   76,
+   8,
+   36,
+   4
+  ]
+ },
+ "ui_file": "ui.png",
+ "logo": {
+  "file": "logo.png",
+  "emissive": "logo_e.png"
+ },
+ "ending": {
+  "file": "ending.png",
+  "emissive": "ending_e.png",
+  "lamp": [
+   148,
+   92
+  ]
+ },
+ "_notes": {
+  "anims": "fps 0 = variant set: pick one frame per instance, do not animate.",
+  "ui": "ui.* rects are [x,y,w,h] in ui.png (ui_file). panel_9slice uses 8 px corners.",
+  "origins": "ox/oy = pivot in frame pixels. kelp/coral/ruin/bones/vent pivot is bottom-centre (sit them on the floor)."
+ }
+}
